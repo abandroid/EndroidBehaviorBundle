@@ -1,0 +1,7 @@
+admin:
+    behavior:
+        publishable:
+            publish: Publish
+            published: Published
+        translatable:
+            translations: Translations

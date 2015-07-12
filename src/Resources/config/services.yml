@@ -1,0 +1,67 @@
+services:
+    behavior.publishable.extension:
+        class: Endroid\Bundle\BehaviorBundle\Admin\Extension\PublishableAdminExtension
+        tags:
+            - { name: sonata.admin.extension }
+
+    behavior.publishable.filter:
+        class: Endroid\Bundle\BehaviorBundle\Filter\PublishableFilter
+        arguments: [ @doctrine.orm.entity_manager ]
+        calls:
+            - [ setContainer, [ @service_container ] ]
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
+    behavior.sluggable.listener:
+        class: Endroid\Bundle\BehaviorBundle\EventListener\SluggableListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist, method: onPrePersist }
+
+    behavior.sortable.extension:
+        class: Endroid\Bundle\BehaviorBundle\Admin\Extension\SortableAdminExtension
+        tags:
+            - { name: sonata.admin.extension }
+
+    behavior.sortable.listener:
+        class: Endroid\Bundle\BehaviorBundle\EventListener\SortableListener
+        tags:
+            - { name: doctrine.event_listener, event: postPersist, method: onPostPersist }
+            - { name: doctrine.event_listener, event: preUpdate, method: onPreUpdate }
+
+    behavior.timestampable.listener:
+        class: Endroid\Bundle\BehaviorBundle\EventListener\TimestampableListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist, method: onPrePersist }
+            - { name: doctrine.event_listener, event: preUpdate, method: onPreUpdate }
+
+    behavior.translatable.filter:
+        class: Endroid\Bundle\BehaviorBundle\Filter\TranslatableFilter
+        arguments: [ @doctrine.orm.entity_manager ]
+        calls:
+            - [ setContainer, [ @service_container ] ]
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
+    behavior.translatable.listener:
+        class: Endroid\Bundle\BehaviorBundle\EventListener\TranslatableListener
+        tags:
+            - { name: doctrine.event_listener, event: loadClassMetadata , method: onLoadClassMetadata }
+
+    behavior.translation.extension:
+        class: Endroid\Bundle\BehaviorBundle\Admin\Extension\TranslationAdminExtension
+        calls:
+            - [ setContainer, [ @service_container ] ]
+        tags:
+            - { name: sonata.admin.extension }
+
+    behavior.traversable.listener:
+        class: Endroid\Bundle\BehaviorBundle\EventListener\TraversableListener
+        tags:
+            - { name: doctrine.event_listener, event: loadClassMetadata , method: onLoadClassMetadata }
+
+    behavior.traversable.extension:
+        class: Endroid\Bundle\BehaviorBundle\Admin\Extension\TraversableAdminExtension
+        calls:
+            - [ setContainer, [ @service_container ] ]
+        tags:
+            - { name: sonata.admin.extension }

@@ -1,0 +1,13 @@
+{% extends admin.getTemplate('base_list_field') %}
+
+{% block field %}
+
+    {% if app.request.query.get('parent') > 0 and admin.hasRoute('up') and admin.isGranted('UP') %}
+
+        <a href="{{ admin.generateUrl('up', { id: object.id }) }}">
+            &uarr;
+        </a>
+
+    {% endif %}
+
+{% endblock %}

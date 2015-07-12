@@ -1,0 +1,26 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+
+    <div class="nowrap">
+
+        {% if object.translatable %}
+
+            {% set translatedLocales = {} %}
+            {% for translation in object.translatable.translations %}
+                {% set translatedLocales = translatedLocales|merge({ (translation.locale): translation }) %}
+            {% endfor %}
+
+            {% for locale in locales  %}
+                {% if locale in translatedLocales|keys %}
+                    <a href="{{ admin.generateObjectUrl('edit', translatedLocales[locale], { locale: locale }) }}"><img alt="{{ locale }}" src="{{ asset('bundles/behavior/img/flag/' ~ locale ~ '.gif') }}" /></a>&nbsp;
+                {% else %}
+                    <a href="{{ admin.generateObjectUrl('create', object, { 'locale': locale, 'translatable': object.translatable.id }) }}"><img class="grayscale" alt="{{ locale }}" src="{{ asset('bundles/behavior/img/flag/' ~ locale ~ '.gif') }}" /></a>&nbsp;
+                {% endif %}
+            {% endfor %}
+
+        {% endif %}
+
+    </div>
+
+{% endblock %}
