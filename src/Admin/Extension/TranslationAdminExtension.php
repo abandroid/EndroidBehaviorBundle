@@ -53,7 +53,7 @@ class TranslationAdminExtension extends AdminExtension implements ContainerAware
         $listMapper
             ->add('translations', 'string', array(
                 'label' => 'admin.behavior.translatable.translations',
-                'template' => 'BehaviorBundle:Admin:translations.html.twig',
+                'template' => 'EndroidBehaviorBundle:Admin:translations.html.twig',
             ));
     }
 

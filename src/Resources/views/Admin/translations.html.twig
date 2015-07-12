@@ -13,9 +13,9 @@
 
             {% for locale in locales  %}
                 {% if locale in translatedLocales|keys %}
-                    <a href="{{ admin.generateObjectUrl('edit', translatedLocales[locale], { locale: locale }) }}"><img alt="{{ locale }}" src="{{ asset('bundles/behavior/img/flag/' ~ locale ~ '.gif') }}" /></a>&nbsp;
+                    <a href="{{ admin.generateObjectUrl('edit', translatedLocales[locale], { locale: locale }) }}"><img alt="{{ locale }}" src="{{ asset('bundles/endroidbehavior/img/flag-' ~ locale ~ '.gif') }}" /></a>&nbsp;
                 {% else %}
-                    <a href="{{ admin.generateObjectUrl('create', object, { 'locale': locale, 'translatable': object.translatable.id }) }}"><img class="grayscale" alt="{{ locale }}" src="{{ asset('bundles/behavior/img/flag/' ~ locale ~ '.gif') }}" /></a>&nbsp;
+                    <a href="{{ admin.generateObjectUrl('create', object, { 'locale': locale, 'translatable': object.translatable.id }) }}"><img class="grayscale" alt="{{ locale }}" src="{{ asset('bundles/endroidbehavior/img/flag-' ~ locale ~ '.gif') }}" /></a>&nbsp;
                 {% endif %}
             {% endfor %}
 
