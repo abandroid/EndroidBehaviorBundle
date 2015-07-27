@@ -1,5 +1,99 @@
+Behavior Bundle
+===============
 
+*By [endroid](http://endroid.nl/)*
+
+[![Latest Stable Version](http://img.shields.io/packagist/v/endroid/behavior-bundle.svg)](https://packagist.org/packages/endroid/behavior-bundle)
+[![Build Status](http://img.shields.io/travis/endroid/EndroidBehaviorBundle.svg)](http://travis-ci.org/endroid/EndroidBehaviorBundle)
+[![Latest Stable Version](https://poser.pugx.org/endroid/behavior-bundle/v/stable.png)](https://packagist.org/packages/endroid/behavior-bundle)
+[![Total Downloads](http://img.shields.io/packagist/dt/endroid/behavior-bundle.svg)](https://packagist.org/packages/endroid/behavior-bundle)
+[![License](http://img.shields.io/packagist/l/endroid/behavior-bundle.svg)](https://packagist.org/packages/endroid/behavior-bundle)
+
+This bundle provides default behaviors you can apply to your classes via
+interfaces and traits. Admin extensions, Doctrine filters and event listeners
+are provided to enforce the behaviors.
+
+[![knpbundles.com](http://knpbundles.com/endroid/EndroidBehaviorBundle/badge-short)](http://knpbundles.com/endroid/EndroidBehaviorBundle)
+
+## Requirements
+
+* Symfony
+* Dependencies:
+ * [`cocur/slugify`](https://github.com/cocur/slugify)
+
+## Installation
+
+Use [Composer](https://getcomposer.org/) to install the bundle.
+
+``` bash
+$ composer require endroid/behavior-bundle
+```
+
+Then enable the bundle via the kernel.
+
+``` php
+<?php
+// app/AppKernel.php
+
+public function registerBundles()
+{
+    $bundles = array(
+        // ...
+        new Endroid\Bundle\BehaviorBundle\EndroidBehaviorBundle(),
+    );
+}
+```
+
+## Configuration
+
+### Doctrine filters
+
+By default only published content for the current language should be retrieved
+from the database. The following configuration enforces this behavior.
+
+```yaml
+doctrine:
+    orm:
+        filters:
+            publishable:
+                class:   Endroid\Bundle\BehaviorBundle\Filter\PublishableFilter
+                enabled: false
+            translation:
+                class:   Endroid\Bundle\BehaviorBundle\Filter\TranslationFilter
+                enabled: false
+```
+
+Of course these filters are optional and you can enable or disable them at any point.
+
+### Admin extensions
+
+Admin extensions for Sonata Admin add functionality to the backend and
+enable you to publish, sort, translate and traverse items. The following
+configuration adds this functionality to all admin classes implementing
+the described interfaces.
+
+```yaml
+sonata_admin:
+    extensions:
+        behavior.publishable.extension:
+            implements:
+                - Endroid\Bundle\BehaviorBundle\Model\PublishableInterface
+        behavior.sortable.extension:
+            implements:
+                - Endroid\Bundle\BehaviorBundle\Model\SortableInterface
+        behavior.translation.extension:
+            implements:
+                - Endroid\Bundle\BehaviorBundle\Model\TranslationInterface
+        behavior.traversable.extension:
+            implements:
+                - Endroid\Bundle\BehaviorBundle\Model\TraversableInterface
+```
 
 ## Versioning
 
 Semantic versioning ([semver](http://semver.org/)) is applied as much as possible.
+
+## License
+
+This bundle is under the MIT license. For the full copyright and license information, please view the LICENSE file that
+was distributed with this source code.
