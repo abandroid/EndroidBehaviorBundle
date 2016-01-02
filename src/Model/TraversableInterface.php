@@ -18,7 +18,7 @@ interface TraversableInterface
      *
      * @param $parent
      *
-     * @return Object
+     * @return object
      */
     public function setParent(TraversableInterface $parent);
 
@@ -50,7 +50,7 @@ interface TraversableInterface
      *
      * @param $child
      *
-     * @return Object
+     * @return object
      */
     public function addChild(TraversableInterface $child);
 
@@ -59,7 +59,7 @@ interface TraversableInterface
      *
      * @param TraversableInterface $child
      *
-     * @return Object
+     * @return object
      */
     public function removeChild(TraversableInterface $child);
 

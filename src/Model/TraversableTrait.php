@@ -37,7 +37,7 @@ trait TraversableTrait
      *
      * @param $parent
      *
-     * @return Object
+     * @return object
      */
     public function setParent(TraversableInterface $parent)
     {
@@ -93,7 +93,7 @@ trait TraversableTrait
      *
      * @param $child
      *
-     * @return Object
+     * @return object
      */
     public function addChild(TraversableInterface $child)
     {
@@ -111,7 +111,7 @@ trait TraversableTrait
      *
      * @param TraversableInterface $child
      *
-     * @return Object
+     * @return object
      */
     public function removeChild(TraversableInterface $child)
     {
