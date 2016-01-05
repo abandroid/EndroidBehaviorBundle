@@ -6,9 +6,9 @@ services:
 
     behavior.publishable.filter:
         class: Endroid\Bundle\BehaviorBundle\Filter\PublishableFilter
-        arguments: [ @doctrine.orm.entity_manager ]
+        arguments: [ '@doctrine.orm.entity_manager' ]
         calls:
-            - [ setContainer, [ @service_container ] ]
+            - [ setContainer, [ '@service_container' ] ]
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
 
@@ -36,9 +36,9 @@ services:
 
     behavior.translatable.filter:
         class: Endroid\Bundle\BehaviorBundle\Filter\TranslatableFilter
-        arguments: [ @doctrine.orm.entity_manager ]
+        arguments: [ '@doctrine.orm.entity_manager' ]
         calls:
-            - [ setContainer, [ @service_container ] ]
+            - [ setContainer, [ '@service_container' ] ]
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
 
@@ -50,7 +50,7 @@ services:
     behavior.translation.extension:
         class: Endroid\Bundle\BehaviorBundle\Admin\Extension\TranslationAdminExtension
         calls:
-            - [ setContainer, [ @service_container ] ]
+            - [ setContainer, [ '@service_container' ] ]
         tags:
             - { name: sonata.admin.extension }
 
@@ -62,6 +62,6 @@ services:
     behavior.traversable.extension:
         class: Endroid\Bundle\BehaviorBundle\Admin\Extension\TraversableAdminExtension
         calls:
-            - [ setContainer, [ @service_container ] ]
+            - [ setContainer, [ '@service_container' ] ]
         tags:
             - { name: sonata.admin.extension }
