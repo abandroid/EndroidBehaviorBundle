@@ -54,6 +54,8 @@ class PublishableFilter extends SQLFilter implements ContainerAwareInterface
     }
 
     /**
+     * Returns the entity manager.
+     *
      * @return EntityManager
      */
     public function getEntityManager()
@@ -62,10 +64,12 @@ class PublishableFilter extends SQLFilter implements ContainerAwareInterface
     }
 
     /**
+     * Returns the current request.
+     *
      * @return Request
      */
-    public function getRequest()
+    protected function getRequest()
     {
-        return $this->container->get('request');
+        return $this->container->get('request_stack')->getCurrentRequest();
     }
 }

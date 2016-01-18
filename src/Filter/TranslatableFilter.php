@@ -51,10 +51,12 @@ class TranslatableFilter extends SQLFilter implements ContainerAwareInterface
         }
 
         $filter = $this->getEntityManager()->getFilters()->enable('translatable_filter');
-        $filter->setParameter('locale', $this->container->get('request')->getLocale());
+        $filter->setParameter('locale', $this->getRequest()->getLocale());
     }
 
     /**
+     * Returns the entity manager.
+     *
      * @return EntityManager
      */
     public function getEntityManager()
@@ -63,10 +65,12 @@ class TranslatableFilter extends SQLFilter implements ContainerAwareInterface
     }
 
     /**
+     * Returns the current request.
+     *
      * @return Request
      */
-    public function getRequest()
+    protected function getRequest()
     {
-        return $this->container->get('request');
+        return $this->container->get('request_stack')->getCurrentRequest();
     }
 }

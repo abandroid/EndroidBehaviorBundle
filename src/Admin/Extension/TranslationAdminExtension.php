@@ -15,6 +15,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
+use Symfony\Component\HttpFoundation\Request;
 
 class TranslationAdminExtension extends AdminExtension implements ContainerAwareInterface
 {
@@ -63,17 +64,17 @@ class TranslationAdminExtension extends AdminExtension implements ContainerAware
     public function alterNewInstance(AdminInterface $admin, $object)
     {
         if ($object->getLocale() === null) {
-            $object->setLocale($this->container->get('request')->query->get('locale'));
+            $object->setLocale($this->getRequest()->query->get('locale'));
         }
 
         $translatable = $object->getTranslatable();
         if ($translatable === null) {
             $translatableClass = get_class($object).'Translatable';
-            $uniqid = $this->container->get('request')->query->get('uniqid');
+            $uniqid = $this->getRequest()->query->get('uniqid');
             if ($uniqid === null) {
-                $translatableId = $this->container->get('request')->query->get('translatable');
+                $translatableId = $this->getRequest()->query->get('translatable');
             } else {
-                $parameters = $this->container->get('request')->request->get($uniqid);
+                $parameters = $this->getRequest()->request->get($uniqid);
                 $translatableId = $parameters['translatable'];
             }
             $translatable = $this->container->get('doctrine')->getRepository($translatableClass)->findOneById($translatableId);
@@ -82,5 +83,15 @@ class TranslationAdminExtension extends AdminExtension implements ContainerAware
             }
             $object->setTranslatable($translatable);
         }
+    }
+
+    /**
+     * Returns the current request.
+     *
+     * @return Request
+     */
+    protected function getRequest()
+    {
+        return $this->container->get('request_stack')->getCurrentRequest();
     }
 }
