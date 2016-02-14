@@ -75,16 +75,16 @@ the described interfaces.
 ```yaml
 sonata_admin:
     extensions:
-        behavior.publishable.extension:
+        endroid_behavior.admin.extension.publishable:
             implements:
                 - Endroid\Bundle\BehaviorBundle\Model\PublishableInterface
-        behavior.sortable.extension:
+        endroid_behavior.admin.extension.sortable:
             implements:
                 - Endroid\Bundle\BehaviorBundle\Model\SortableInterface
-        behavior.translation.extension:
+        endroid_behavior.admin.extension.translation:
             implements:
                 - Endroid\Bundle\BehaviorBundle\Model\TranslationInterface
-        behavior.traversable.extension:
+        endroid_behavior.admin.extension.traversable:
             implements:
                 - Endroid\Bundle\BehaviorBundle\Model\TraversableInterface
 ```

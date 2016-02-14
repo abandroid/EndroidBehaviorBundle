@@ -1,10 +1,10 @@
 services:
-    behavior.publishable.extension:
+    endroid_behavior.admin.extension.publishable:
         class: Endroid\Bundle\BehaviorBundle\Admin\Extension\PublishableAdminExtension
         tags:
             - { name: sonata.admin.extension }
 
-    behavior.publishable.filter:
+    endroid_behavior.filter.publishable:
         class: Endroid\Bundle\BehaviorBundle\Filter\PublishableFilter
         arguments: [ '@doctrine.orm.entity_manager' ]
         calls:
@@ -12,29 +12,29 @@ services:
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
 
-    behavior.sluggable.listener:
+    endroid_behavior.event_listener.sluggable:
         class: Endroid\Bundle\BehaviorBundle\EventListener\SluggableListener
         tags:
             - { name: doctrine.event_listener, event: prePersist, method: onPrePersist }
 
-    behavior.sortable.extension:
+    endroid_behavior.admin.extension.sortable:
         class: Endroid\Bundle\BehaviorBundle\Admin\Extension\SortableAdminExtension
         tags:
             - { name: sonata.admin.extension }
 
-    behavior.sortable.listener:
+    endroid_behavior.event_listener.sortable:
         class: Endroid\Bundle\BehaviorBundle\EventListener\SortableListener
         tags:
             - { name: doctrine.event_listener, event: postPersist, method: onPostPersist }
             - { name: doctrine.event_listener, event: preUpdate, method: onPreUpdate }
 
-    behavior.timestampable.listener:
+    endroid_behavior.event_listener.timestampable:
         class: Endroid\Bundle\BehaviorBundle\EventListener\TimestampableListener
         tags:
             - { name: doctrine.event_listener, event: prePersist, method: onPrePersist }
             - { name: doctrine.event_listener, event: preUpdate, method: onPreUpdate }
 
-    behavior.translatable.filter:
+    endroid_behavior.filter.translatable:
         class: Endroid\Bundle\BehaviorBundle\Filter\TranslatableFilter
         arguments: [ '@doctrine.orm.entity_manager' ]
         calls:
@@ -42,24 +42,24 @@ services:
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
 
-    behavior.translatable.listener:
+    endroid_behavior.event_listener.translatable:
         class: Endroid\Bundle\BehaviorBundle\EventListener\TranslatableListener
         tags:
             - { name: doctrine.event_listener, event: loadClassMetadata , method: onLoadClassMetadata }
 
-    behavior.translation.extension:
+    endroid_behavior.admin.extension.translation:
         class: Endroid\Bundle\BehaviorBundle\Admin\Extension\TranslationAdminExtension
         calls:
             - [ setContainer, [ '@service_container' ] ]
         tags:
             - { name: sonata.admin.extension }
 
-    behavior.traversable.listener:
+    endroid_behavior.event_listener.traversable:
         class: Endroid\Bundle\BehaviorBundle\EventListener\TraversableListener
         tags:
             - { name: doctrine.event_listener, event: loadClassMetadata , method: onLoadClassMetadata }
 
-    behavior.traversable.extension:
+    endroid_behavior.admin.extension.traversable:
         class: Endroid\Bundle\BehaviorBundle\Admin\Extension\TraversableAdminExtension
         calls:
             - [ setContainer, [ '@service_container' ] ]
