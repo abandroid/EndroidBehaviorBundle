@@ -58,9 +58,6 @@ doctrine:
             publishable:
                 class:   Endroid\Bundle\BehaviorBundle\Filter\PublishableFilter
                 enabled: false
-            translation:
-                class:   Endroid\Bundle\BehaviorBundle\Filter\TranslationFilter
-                enabled: false
 ```
 
 Of course these filters are optional and you can enable or disable them at any point.
@@ -68,7 +65,7 @@ Of course these filters are optional and you can enable or disable them at any p
 ### Admin extensions
 
 Admin extensions for Sonata Admin add functionality to the backend and
-enable you to publish, sort, translate and traverse items. The following
+enable you to publish, sort and traverse items. The following
 configuration adds this functionality to all admin classes implementing
 the described interfaces.
 
@@ -81,9 +78,6 @@ sonata_admin:
         endroid_behavior.admin.extension.sortable:
             implements:
                 - Endroid\Bundle\BehaviorBundle\Model\SortableInterface
-        endroid_behavior.admin.extension.translation:
-            implements:
-                - Endroid\Bundle\BehaviorBundle\Model\TranslationInterface
         endroid_behavior.admin.extension.traversable:
             implements:
                 - Endroid\Bundle\BehaviorBundle\Model\TraversableInterface

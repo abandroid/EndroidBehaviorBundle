@@ -3,5 +3,3 @@ admin:
         publishable:
             publish: Publish
             published: Published
-        translatable:
-            translations: Translations
