@@ -12,11 +12,6 @@ services:
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
 
-    endroid_behavior.event_listener.sluggable:
-        class: Endroid\Bundle\BehaviorBundle\EventListener\SluggableListener
-        tags:
-            - { name: doctrine.event_listener, event: prePersist, method: onPrePersist }
-
     endroid_behavior.admin.extension.sortable:
         class: Endroid\Bundle\BehaviorBundle\Admin\Extension\SortableAdminExtension
         tags:

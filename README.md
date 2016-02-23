@@ -18,8 +18,6 @@ are provided to enforce the behaviors.
 ## Requirements
 
 * Symfony
-* Dependencies:
- * [`cocur/slugify`](https://github.com/cocur/slugify)
 
 ## Installation
 
