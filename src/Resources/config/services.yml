@@ -10,7 +10,7 @@ services:
         calls:
             - [ setContainer, [ '@service_container' ] ]
         tags:
-            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+            - { name: kernel.event_listener, event: kernel.controller }
 
     endroid_behavior.admin.extension.sortable:
         class: Endroid\Bundle\BehaviorBundle\Admin\Extension\SortableAdminExtension
@@ -20,19 +20,19 @@ services:
     endroid_behavior.event_listener.sortable:
         class: Endroid\Bundle\BehaviorBundle\EventListener\SortableListener
         tags:
-            - { name: doctrine.event_listener, event: postPersist, method: onPostPersist }
-            - { name: doctrine.event_listener, event: preUpdate, method: onPreUpdate }
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: preUpdate }
 
     endroid_behavior.event_listener.timestampable:
         class: Endroid\Bundle\BehaviorBundle\EventListener\TimestampableListener
         tags:
-            - { name: doctrine.event_listener, event: prePersist, method: onPrePersist }
-            - { name: doctrine.event_listener, event: preUpdate, method: onPreUpdate }
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
 
     endroid_behavior.event_listener.traversable:
         class: Endroid\Bundle\BehaviorBundle\EventListener\TraversableListener
         tags:
-            - { name: doctrine.event_listener, event: loadClassMetadata , method: onLoadClassMetadata }
+            - { name: doctrine.event_listener, event: loadClassMetadata }
 
     endroid_behavior.admin.extension.traversable:
         class: Endroid\Bundle\BehaviorBundle\Admin\Extension\TraversableAdminExtension
