@@ -5,8 +5,8 @@ Behavior Bundle
 
 [![Latest Stable Version](http://img.shields.io/packagist/v/endroid/behavior-bundle.svg)](https://packagist.org/packages/endroid/behavior-bundle)
 [![Build Status](http://img.shields.io/travis/endroid/EndroidBehaviorBundle.svg)](http://travis-ci.org/endroid/EndroidBehaviorBundle)
-[![Latest Stable Version](https://poser.pugx.org/endroid/behavior-bundle/v/stable.png)](https://packagist.org/packages/endroid/behavior-bundle)
 [![Total Downloads](http://img.shields.io/packagist/dt/endroid/behavior-bundle.svg)](https://packagist.org/packages/endroid/behavior-bundle)
+[![Monthly Downloads](http://img.shields.io/packagist/dm/endroid/behavior-bundle.svg)](https://packagist.org/packages/endroid/behavior-bundle)
 [![License](http://img.shields.io/packagist/l/endroid/behavior-bundle.svg)](https://packagist.org/packages/endroid/behavior-bundle)
 
 This bundle provides default behaviors you can apply to your classes via
@@ -83,9 +83,9 @@ sonata_admin:
 
 ## Versioning
 
-Version numbers follow the MAJOR.MINOR.PATCH scheme. Backwards compatible
-changes will be kept to a minimum but be aware that these can occur. Lock
-your dependencies for production and test your code when upgrading.
+Version numbers follow the MAJOR.MINOR.PATCH scheme. Backwards compatibility
+breaking changes will be kept to a minimum but be aware that these can occur.
+Lock your dependencies for production and test your code when upgrading.
 
 ## License
 
