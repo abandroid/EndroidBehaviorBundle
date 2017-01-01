@@ -67,7 +67,7 @@ trait TraversableTrait
      */
     public function getPath()
     {
-        $path = array();
+        $path = [];
         if ($this->parent != null) {
             $path = $this->parent->getPath();
         }

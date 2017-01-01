@@ -22,8 +22,8 @@ class SortableAdminExtension extends AdminExtension
     public function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('up', 'string', array('label' => ' ', 'template' => 'BehaviorBundle:Sortable:list_field_up.html.twig'))
-            ->add('down', 'string', array('label' => ' ', 'template' => 'BehaviorBundle:Sortable:list_field_down.html.twig'))
+            ->add('up', 'string', ['label' => ' ', 'template' => 'BehaviorBundle:Sortable:list_field_up.html.twig'])
+            ->add('down', 'string', ['label' => ' ', 'template' => 'BehaviorBundle:Sortable:list_field_down.html.twig'])
         ;
     }
 

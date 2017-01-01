@@ -31,7 +31,7 @@ class TraversableListener
 
             // In case of sortable order children by position
             if ($reflectionClass->implementsInterface('Endroid\Bundle\BehaviorBundle\Model\SortableInterface')) {
-                $classMetadata->associationMappings['children']['orderBy'] = array('position' => 'ASC');
+                $classMetadata->associationMappings['children']['orderBy'] = ['position' => 'ASC'];
             }
         }
     }
